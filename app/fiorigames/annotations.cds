@@ -28,6 +28,11 @@ annotate service.Games with @(
                 Label : 'releaseDate',
                 Value : releaseDate,
             },
+            {
+                $Type : 'UI.DataField',
+                Label : 'studio',
+                Value : studio,
+            },
         ],
     },
     UI.Facets : [
@@ -63,6 +68,11 @@ annotate service.Games with @(
             $Type : 'UI.DataField',
             Label : 'releaseDate',
             Value : releaseDate,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'studio',
+            Value : studioName,
         },
     ],
 );
