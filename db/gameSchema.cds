@@ -10,7 +10,7 @@ namespace sap.capire.games;
 entity Games : managed, cuid {
     name        : String(100);
     studio      : Association to Studio;
-    genre       : String;
+    genre       : Association to Genre;
     price       : Decimal;
     currency    : Currency;
     releaseDate : Date;
