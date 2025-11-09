@@ -1,0 +1,8 @@
+ID,name,descr,parent_ID
+1,Action,Action-packed games,
+2,RPG,Role-playing games,
+3,Adventure,Exploration and puzzles,
+4,Action RPG,Mix of Action and RPG,2
+5,Soulslike,Hardcore action RPG,4
+6,JRPG,Japanese RPG,2
+7,Open World,Games with large explorable maps,3
