@@ -14,6 +14,7 @@ entity Orders : managed {
     totalPrice      : Decimal;
     currency        : Currency;
 
+    status          : String(1);
     // link to level 2
     items           : Association to many OrderItems
                         on items.parentOrder = $self;

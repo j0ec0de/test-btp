@@ -1,5 +1,9 @@
 using ShopService as service from '../../srv/shop-service';
 annotate service.Orders with @(
+    UI.SelectionFields : [
+        customerName,
+        
+    ],
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
         Data : [
@@ -55,6 +59,12 @@ annotate service.Orders with @(
             $Type : 'UI.DataField',
             Label : 'currency_code',
             Value : currency_code,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'StatusText',
+            Value : statusText,
+            Criticality: criticality,
         },
     ],
     UI.Facets : [

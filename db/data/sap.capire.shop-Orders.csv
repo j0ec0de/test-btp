@@ -1,3 +1,4 @@
-ID,orderDate,customerName,totalPrice,currency_code
-ORD001,2025-10-28,Joel Anto,1349.98,USD
-ORD002,2025-11-10,Jane Doe,129.99,USD
+ID,orderDate,customerName,totalPrice,currency_code,status
+ORD001,2025-10-28,Joel Anto,1349.98,USD,C
+ORD002,2025-11-10,Jane Doe,129.99,USD,P
+ORD003,2025-11-11,John Doe,135.90,USD,F
