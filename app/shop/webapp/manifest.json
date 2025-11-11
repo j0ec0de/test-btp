@@ -122,15 +122,15 @@
                     "type": "ResponsiveTable"
                   },
                   "actions": {
-                    "click": {
-                      "press": "shop.custom.CustomActions.click",
-                      "text": "Click",
-                      "enabled": true,
-                      "visible": true
-                    },
                     "show": {
                       "press": "shop.custom.CustomActions.show",
                       "text": "Show",
+                      "enabled": true,
+                      "visible": true
+                    },
+                    "send": {
+                      "press": "shop.custom.CustomActions.send",
+                      "text": "Send",
                       "enabled": true,
                       "visible": true
                     }
