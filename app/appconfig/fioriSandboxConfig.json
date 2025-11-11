@@ -27,6 +27,14 @@
                     "title": "View Games",
                     "targetURL": "#Games-display"
                   }
+                },
+                {
+                  "id": "MyShop",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "title": "My Shop",
+                    "targetURL": "#Orders-display"
+                  }
                 }
               ]
             },
@@ -114,6 +122,20 @@
                 "applicationType": "SAPUI5",
                 "additionalInformation": "SAPUI5.Component=fiorigames",
                 "url": "fiorigames/webapp"
+              }
+            },
+            "DisplayOrders": {
+              "semanticObject": "Orders",
+              "action": "display",
+              "title": "My Shop",
+              "signature": {
+                  "parameters": {},
+                  "additionalParameters": "allowed"
+              },
+              "resolutionResult": {
+                  "applicationType": "SAPUI5",
+                  "additionalInformation": "SAPUI5.Component=shop",
+                  "url": "shop/webapp"
               }
             }
           }

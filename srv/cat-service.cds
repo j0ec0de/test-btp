@@ -22,6 +22,8 @@ service CatalogService {
       modifiedBy
     };
 
+
+
   @requires: 'authenticated-user'
   action submitOrder(book : Books : ID  @mandatory,
                      quantity : Integer @mandatory
@@ -34,4 +36,6 @@ service CatalogService {
     quantity : Integer;
     buyer    : String
   };
+
+  action printDetails(ID: String, reason: String(120)) returns String;
 }

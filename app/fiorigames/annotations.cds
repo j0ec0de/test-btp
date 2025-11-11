@@ -1,5 +1,9 @@
 using MyService as service from '../../srv/game-service';
 annotate service.Games with @(
+    UI.SelectionFields: [
+        studioName,
+        genreName,
+    ],
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
         Data : [
@@ -10,8 +14,8 @@ annotate service.Games with @(
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'genre_ID',
-                Value : genre_ID,
+                Label : 'genre',
+                Value : genreName,
             },
             {
                 $Type : 'UI.DataField',
@@ -31,18 +35,28 @@ annotate service.Games with @(
             {
                 $Type : 'UI.DataField',
                 Label : 'studio',
-                Value : studio,
+                Value : studioName,
             },
         ],
     },
     UI.Facets : [
         {
-            $Type : 'UI.ReferenceFacet',
+            $Type : 'UI.ReferenceFacet', // template
             ID : 'GeneratedFacet1',
             Label : 'General Information',
-            Target : '@UI.FieldGroup#GeneratedGroup',
+            // Target : '@UI.LineItem',
+            Target : '@UI.FieldGroup#GeneratedGroup'
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID : 'GeneratedFacet2',
+            Label : 'Games by this Studio',
+            Target : 'studio/@UI.LineItem#GeneratedStudio'
         },
     ],
+
+
+
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
@@ -74,10 +88,18 @@ annotate service.Games with @(
             Label : 'studio',
             Value : studioName,
         },
+        {
+            $Type : 'UI.DataField',
+            Label : 'genre',
+            Value : genreName,
+        },
     ],
-);
+)
 
-annotate service.Games with {
+{
+    studio @Common.Text : studio.name;
+    genre  @Common.Text : genre.name;
+
     studio @Common.ValueList : {
         $Type : 'Common.ValueListType',
         CollectionPath : 'Studio',
@@ -96,6 +118,42 @@ annotate service.Games with {
                 ValueListProperty : 'location',
             },
         ],
-    }
+    };
+        
 };
 
+annotate service.Studio with @(
+    UI.HeaderInfo : {
+        TypeName       : 'Studio',
+        TypeNamePlural : 'Studios',
+        Title          : {
+            $Type : 'UI.DataField',
+            Value : name
+        },
+        Description : {
+            $Type: 'UI.DataField',
+            Value: location
+        }
+    },
+
+        UI.LineItem #GeneratedStudio : [
+        {
+            $Type : 'UI.DataField',
+            Label : 'Name',
+            Value : name,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'studio',
+            Value : studioName,
+        },
+    ],
+
+    UI.Facets : [
+        {
+            $Type  : 'UI.ReferenceFacet',
+            Label  : 'Games',
+            Target : 'games/@UI.LineItem' 
+        }
+    ]
+)

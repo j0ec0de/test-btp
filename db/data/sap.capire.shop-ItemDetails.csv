@@ -1,0 +1,4 @@
+ID,detailType,detailValue,parentItem_ID
+DET01,Expires 2027-10-27,2-Year Extended Warranty,ITM01
+DET02,SN-KYB-98765,Serial Number,ITM03
+DET03,Expires 2026-11-09,1-Year Standard Warranty,ITM03

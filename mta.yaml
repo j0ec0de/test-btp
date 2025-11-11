@@ -75,6 +75,10 @@ modules:
       - fiorigames.zip
       name: fiorigames
       target-path: app/
+    - artifacts:
+      - shop.zip
+      name: shop
+      target-path: app/
 - name: test2adminbooks
   type: html5
   path: app/admin-books
@@ -98,6 +102,16 @@ modules:
 - name: fiorigames
   type: html5
   path: app/fiorigames
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: shop
+  type: html5
+  path: app/shop
   build-parameters:
     build-result: dist
     builder: custom

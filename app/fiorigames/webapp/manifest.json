@@ -81,57 +81,94 @@
       "css": []
     },
     "routing": {
-      "config": {},
-      "routes": [
-        {
-          "pattern": ":?query:",
-          "name": "GamesList",
-          "target": "GamesList"
-        },
-        {
-          "pattern": "Games({key}):?query:",
-          "name": "GamesObjectPage",
-          "target": "GamesObjectPage"
-        }
-      ],
-      "targets": {
-        "GamesList": {
-          "type": "Component",
-          "id": "GamesList",
-          "name": "sap.fe.templates.ListReport",
-          "options": {
-            "settings": {
-              "contextPath": "/Games",
-              "variantManagement": "Page",
-              "navigation": {
-                "Games": {
-                  "detail": {
-                    "route": "GamesObjectPage"
-                  }
-                }
-              },
-              "controlConfiguration": {
-                "@com.sap.vocabularies.UI.v1.LineItem": {
-                  "tableSettings": {
-                    "type": "ResponsiveTable"
-                  }
-                }
-              }
+        "config": {},
+        "routes": [
+            {
+                "pattern": ":?query:",
+                "name": "StudioList",
+                "target": "StudioList"
+            },
+            {
+                "pattern": "Studio({key}):?query:",
+                "name": "StudioObjectPage",
+                "target": "StudioObjectPage"
+            },
+            {
+                "pattern": "Studio({key})/games({gameKey}):?query:",
+                "name": "GamesObjectPage",
+                "target": "GamesObjectPage"
             }
-          }
-        },
-        "GamesObjectPage": {
-          "type": "Component",
-          "id": "GamesObjectPage",
-          "name": "sap.fe.templates.ObjectPage",
-          "options": {
-            "settings": {
-              "editableHeaderContent": false,
-              "contextPath": "/Games"
+        ],
+        "targets": {
+            "StudioList": {
+                "type": "Component",
+                "id": "StudioList",
+                "name": "sap.fe.templates.ListReport",
+                "options": {
+                    "settings": {
+                        "contextPath": "/Studio",
+                        "variantManagement": "Page",
+                        "initialload":"Enabled",
+                        "controlConfiguration": {
+                          "@com.sap.vocabularies.UI.v1.LineItem": {
+                            "actions": {
+                              "sync": {
+                                "press": "fiorigames.custom.customActions.click",
+                                "text": "click",
+                                "enabled": true,
+                                "visible": true
+                              }
+                            }
+                          }
+                        },
+                        "navigation": {
+                            "Studio": {
+                                "detail": {
+                                    "route": "StudioObjectPage"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+              "StudioObjectPage": {
+                          "type": "Component",
+                          "id": "StudioObjectPage",
+                          "name": "sap.fe.templates.ObjectPage",
+                          "options": {
+                              "settings": {
+                                  "contextPath": "/Studio",
+                                  "navigation": {
+                                      "games": {
+                                          "detail": {
+                                              "route": "GamesObjectPage"
+                                          }
+                                      }
+                                  },
+                                  "controlConfiguration": {
+                                      "games/@com.sap.vocabularies.UI.v1.LineItem": {
+                                          "tableSettings": {
+                                              "type": "ResponsiveTable",
+                                              "rowSettings": {
+                                                  "navigationIndicator": true
+                                              }
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      },
+            "GamesObjectPage": {
+                "type": "Component",
+                "id": "GamesObjectPage",
+                "name": "sap.fe.templates.ObjectPage",
+                "options": {
+                    "settings": {
+                        "contextPath": "/Games"
+                    }
+                }
             }
-          }
         }
-      }
     }
   },
   "sap.fiori": {

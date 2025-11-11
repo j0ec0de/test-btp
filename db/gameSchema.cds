@@ -1,26 +1,27 @@
 using {
     Currency,
     managed,
-    cuid,
     sap,
 } from '@sap/cds/common';
 
 namespace sap.capire.games;
 
-entity Games : managed, cuid {
+// header table 
+entity Studio : managed,{
+    key ID      : String(10);
+    name        : String(100);    
+    location    : String;
+    games       : Association to many Games
+                    on games.studio = $self;   
+}
+entity Games : managed,{
+    key ID      : String(10);
     name        : String(100);
     studio      : Association to Studio;
     genre       : Association to Genre;
     price       : Decimal;
     currency    : Currency;
     releaseDate : Date;
-}
-
-entity Studio : managed, cuid {
-    name        : String(100);    
-    location    : String;
-    games       : Association to many Games
-                    on games.studio = $self;
 }
 
 entity Genre : sap.common.CodeList {

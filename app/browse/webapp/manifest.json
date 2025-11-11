@@ -104,6 +104,19 @@
             "settings": {
               "entitySet": "Books",
               "initialLoad": true,
+                            "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "actions": {
+                    "sync": {
+                      "press": "browse.custom.CustomActions.click",
+                      "text": "click",
+                      "enabled": true,
+                      "visible": true
+                    }
+                  }
+                }
+              },
+ 
               "navigation": {
                 "Books": {
                   "detail": {
