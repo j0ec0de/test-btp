@@ -127,6 +127,12 @@
                       "text": "Click",
                       "enabled": true,
                       "visible": true
+                    },
+                    "show": {
+                      "press": "shop.custom.CustomActions.show",
+                      "text": "Show",
+                      "enabled": true,
+                      "visible": true
                     }
                   }
                 }
