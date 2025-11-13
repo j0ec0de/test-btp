@@ -61,8 +61,10 @@ sap.ui.define([
             
             // static payload
 
+            
+
             const myPayLoad = {
-                "orderID": "OR003",
+                "orderID": "OR002",
             };
 
             jQuery.ajax({
@@ -87,7 +89,7 @@ sap.ui.define([
 
                         success: function (data) {
                             BusyIndicator.hide();
-                            MessageToast.show("POST request successfully!");
+                            MessageToast.show(`POST request successfully  ${data.value}`);
                             console.log("Response:", data);
                         },
                         
@@ -164,6 +166,9 @@ sap.ui.define([
                             }),
                             new Column({
                                 header: new Text({ text: "Currency" })
+                            }),
+                            new Column({
+                                header: new Text({ text: "Status" })
                             })
                         ],
                         items: {
@@ -173,7 +178,8 @@ sap.ui.define([
                                     new Text({ text: "{customerName}" }),
                                     new Text({ text: "{ID}" }),
                                     new Text({ text: "{totalPrice}" }),
-                                    new Text({ text: "{currency_code}" })
+                                    new Text({ text: "{currency_code}" }),
+                                    new Text({ text: "{status}" })
                                 ]
                             })
                         }
@@ -265,6 +271,14 @@ sap.ui.define([
                 }
             })
 
+        },
+
+        view: function() {
+            BusyIndicator.show(0);
+
+            const oModel = this.getView().getModel();
+            const oContext = this.getView().getBindingContext();
+            
         }
     };
 });

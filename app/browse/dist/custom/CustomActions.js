@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/ui/core/Core","sap/m/Dialog","sap/m/DialogType","sap/m/Button","sap/m/ButtonType","sap/m/Label","sap/m/Input","sap/m/Select","sap/m/MultiComboBox","sap/m/MessageToast","sap/m/Text","sap/m/TextArea","sap/m/ComboBox","sap/m/MessageBox","sap/m/CheckBox","sap/ui/model/json/JSONModel","sap/ui/table/Table","sap/m/ToggleButton"],function(a,s,o,e,p,t,m,u,i,n,l,r,c,B,T,g,x,b,d){"use strict";return{Edit:function(a,s){sap.ui.core.BusyIndicator.show()}}});
+//# sourceMappingURL=CustomActions.js.map

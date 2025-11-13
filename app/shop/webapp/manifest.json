@@ -148,15 +148,31 @@
             "settings": {
               "editableHeaderContent": false,
               "contextPath": "/Orders",
+              "variantManagement": "Page",
               "navigation": {
                 "items": {
                   "detail": {
                     "route": "OrderItemsObjectPage"
                   }
                 }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  },
+                  "actions": {
+                    "view": {
+                      "press": "shop.custom.CustomActions.view",
+                      "text": "View",
+                      "enabled": true,
+                      "visible": true
+                    }
+                  }
+                }
               }
             }
-          }
+          }  
         },
         "OrderItemsObjectPage": {
           "type": "Component",

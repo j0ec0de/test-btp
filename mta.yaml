@@ -79,6 +79,10 @@ modules:
       - shop.zip
       name: shop
       target-path: app/
+    - artifacts:
+      - management.zip
+      name: management
+      target-path: app/
 - name: test2adminbooks
   type: html5
   path: app/admin-books
@@ -112,6 +116,16 @@ modules:
 - name: shop
   type: html5
   path: app/shop
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: management
+  type: html5
+  path: app/management
   build-parameters:
     build-result: dist
     builder: custom

@@ -2,17 +2,10 @@ using {sap.capire.shop as my} from '../db/shopSchema';
 
 service ShopService {
     entity Orders as projection on my.Orders {
-        ID,
-        orderDate,
-        customerName,
-        totalPrice,
-        currency,
-        status,
-        items,
-    
+        *,    
         // virtual fields
-        @Core.DependsOn: 'status'
-        cast(null as String) as statusText,
+        // @Core.DependsOn: 'status'
+        // cast(null as String) as statusText,
 
         @Core.DependsOn: 'status' 
         cast(null as Integer) as criticality
@@ -33,4 +26,5 @@ service ShopService {
 
     action checkOrderStatus(orderID : String) returns String;
     action checkPayloadStatus(orderID : String) returns String;
+    action checkNewAction(orderID : String) returns String;
 }

@@ -2,7 +2,7 @@ using ShopService as service from '../../srv/shop-service';
 annotate service.Orders with @(
     UI.SelectionFields : [
         customerName,
-        
+        status,
     ],
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
@@ -62,8 +62,8 @@ annotate service.Orders with @(
         },
         {
             $Type : 'UI.DataField',
-            Label : 'StatusText',
-            Value : statusText,
+            Label : 'Status',
+            Value : status,
             Criticality: criticality,
         },
     ],
@@ -105,6 +105,12 @@ annotate service.OrderItems with @(
             $Type : 'UI.DataField',
             Label : 'Price per Unit',
             Value : pricePerUnit
+        },
+        // new button with action
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action: 'ShopService.EntityContainer/checkNewAction',
+            Label : 'View'
         }
     ],
     UI.HeaderInfo : {

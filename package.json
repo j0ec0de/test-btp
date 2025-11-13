@@ -21,7 +21,8 @@
     "undeploy": "cf undeploy test2 --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
-    "watch-shop": "cds watch --open shop/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-shop": "cds watch --open shop/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-management": "cds watch --open management/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "private": true,
   "cds": {
