@@ -349,7 +349,7 @@ sap.ui.define([
             BusyIndicator.show(0);
             setTimeout( function (){
                 BusyIndicator.hide();
-                MessageToast.show("Changed!!!")
+                MessageToast.show("Change button works!!!")
             }, 1000)
         }   
     };
