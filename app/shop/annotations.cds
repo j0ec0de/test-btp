@@ -106,12 +106,12 @@ annotate service.OrderItems with @(
             Label : 'Price per Unit',
             Value : pricePerUnit
         },
-        // new button with action
-        {
-            $Type : 'UI.DataFieldForAction',
-            Action: 'ShopService.EntityContainer/checkNewAction',
-            Label : 'View'
-        }
+        // // new button with action
+        // {
+        //     $Type : 'UI.DataFieldForAction',
+        //     Action: 'ShopService.EntityContainer/checkNewAction',
+        //     Label : 'View'
+        // }
     ],
     UI.HeaderInfo : {
         TypeName : 'Order Item',

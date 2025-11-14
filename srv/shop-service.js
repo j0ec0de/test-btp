@@ -35,9 +35,9 @@ module.exports = cds.service.impl(async function () {
         }
     });
 
-    this.on('checkNewAction', async (req) => {
-        console.log("Button works")
-    })
+    // this.on('checkNewAction', async (req) => {
+    //     console.log("Button works")
+    // })
     
     // this.after('READ', 'Orders', (data) => {
         // const orders = Array.isArray(data) ? data : [data];

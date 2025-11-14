@@ -157,7 +157,7 @@
                 }
               },
               "controlConfiguration": {
-                "@com.sap.vocabularies.UI.v1.LineItem": {
+                "items/@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "ResponsiveTable"
                   },
@@ -181,7 +181,22 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/Orders/items"
+              "contextPath": "/Orders/items",
+                "controlConfiguration": {
+                "details/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  },
+                  "actions": {
+                    "change": {
+                      "press": "shop.custom.CustomActions.change",
+                      "text": "Change",
+                      "enabled": true,
+                      "visible": true
+                    }
+                  }
+                }
+              }
             }
           }
         }

@@ -83,6 +83,10 @@ modules:
       - management.zip
       name: management
       target-path: app/
+    - artifacts:
+      - ui5demoapp.zip
+      name: ui5demoapp
+      target-path: app/
 - name: test2adminbooks
   type: html5
   path: app/admin-books
@@ -133,6 +137,16 @@ modules:
     - npm install
     - npm run build:cf
     supported-platforms: []
+- name: ui5demoapp
+  type: html5
+  path: app/ui5demoapp
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
 resources:
 - name: test2-auth
   type: org.cloudfoundry.managed-service
@@ -176,9 +190,18 @@ resources:
             ProxyType: Internet
             Type: HTTP
             URL: https://ui5.sap.com
+          - Authentication: NoAuthentication
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            Name: srv-api
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}
           existing_destinations_policy: update
     service: destination
     service-plan: lite
+  requires:
+  - name: srv-api
 - name: test2-html5-repo-host
   type: org.cloudfoundry.managed-service
   parameters:

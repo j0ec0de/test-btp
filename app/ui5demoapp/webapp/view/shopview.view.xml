@@ -1,0 +1,25 @@
+<mvc:View 
+    controllerName="ui5demoapp.controller.shopview"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <Table id="orders" items="{orderModel>/}">
+            <columns>
+                <Column id="ID">
+                    <Text id="id" text="Order ID" />
+                </Column>
+                <Column id="names">
+                    <Text id="name" text="Customer Name" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem id="columnsss">
+                    <cells>
+                        <Text id="showID" text="{orderModel>ID}" />  
+                        <Text id="showname" text="{orderModel>customerName}" /> 
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>

@@ -10,8 +10,11 @@ sap.ui.define([
     "sap/m/Column",
     "sap/m/ColumnListItem",
     "sap/m/Text",
-    "sap/m/Sticky"
-], function (BusyIndicator, MessageToast, Dialog, Button, ButtonType, MessageBox, JSONModel, Table, Column, ColumnListItem, Text, Sticky) {
+    "sap/f/Card",
+    "sap/m/VBox",
+    "sap/m/List",
+    "sap/m/StandardListItem"
+], function (BusyIndicator, MessageToast, Dialog, Button, ButtonType, MessageBox, JSONModel, Table, Column, ColumnListItem, Text, Card, VBox, List, StandardListItem ) {
     "use strict";
  
     return {
@@ -276,9 +279,78 @@ sap.ui.define([
         view: function() {
             BusyIndicator.show(0);
 
-            const oModel = this.getView().getModel();
-            const oContext = this.getView().getBindingContext();
+            // setTimeout(function() {
+            //     BusyIndicator.hide();
+            //     MessageToast.show("Button Works!");
+            // }, 1000)  
             
-        }
+            // const currentOrderId = this.getCurrentOrderId();
+            // if (!currentOrderId) {
+            //     MessageBox.error("No order id found!")
+            //     return;
+            // }
+
+            jQuery.ajax({
+                url: `/odata/v4/shop/OrderItems`,
+                type: "GET",
+                contentType: "application/json",
+
+                success: function (data) {
+                    BusyIndicator.hide();
+
+                    console.log("Items: ",data.value )
+
+                    const rOrders = data.value
+
+                    // convert to JSON
+
+                    const oModel = new JSONModel(rOrders);
+
+                    const oList = new List({
+                        items: {
+                            path: "/",
+                            template: new StandardListItem({
+                                title: "{productName}",
+                                description: "{customerName}",
+                                info: "{formattedPrice}",
+                                infoState: "Success"
+                            })
+                        }
+                    });
+                    oList.setModel(oModel);
+
+                    const oDialog = new Dialog({
+                        title: "Order Items",
+                        contentWidth: "50rem",
+                        contentHeight: "30rem",
+                        content: [oList],
+                        endButton: new Button({
+                            text: "Cancel",
+                            press: function() {
+                                oDialog.close();
+                            }
+                        }),
+                        afterClose: function() {
+                            oDialog.destroy();
+                        }
+                    });
+                    oDialog.open();
+
+                },
+
+                error: function (error) {
+                    BusyIndicator.hide();
+                    MessageBox.error(`Request failed: ${error}`);
+                }
+            })
+        },
+
+        change: function() {
+            BusyIndicator.show(0);
+            setTimeout( function (){
+                BusyIndicator.hide();
+                MessageToast.show("Changed!!!")
+            }, 1000)
+        }   
     };
 });

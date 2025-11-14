@@ -10,3 +10,5 @@ using from './fiorigames/annotations';
 using from './shop/annotations';
 
 using from './management/annotations';
+
+using from './ui5demoapp/annotations';
