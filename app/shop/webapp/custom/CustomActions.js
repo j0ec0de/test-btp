@@ -351,6 +351,18 @@ sap.ui.define([
                 BusyIndicator.hide();
                 MessageToast.show("Change button worksssss noww!!!")
             }, 1000)
-        }   
+        },
+        
+        sync: async function(){
+            const res = await fetch("/odata/v4/shop/getProducts", { 
+                method: "POST" ,
+                headers: {
+                    "content-Type": "application/json"
+                },
+                body: JSON.stringify({})
+            });
+            const data = await res.json();
+            console.log("Products: ", data);
+        }
     };
 });

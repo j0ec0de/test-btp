@@ -133,6 +133,12 @@
                       "text": "Send",
                       "enabled": true,
                       "visible": true
+                    },
+                    "sync": {
+                      "press": "shop.custom.CustomActions.sync",
+                      "text": "Sync",
+                      "enabled": true,
+                      "visible": true
                     }
                   }
                 }

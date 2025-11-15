@@ -86,6 +86,16 @@ module.exports = cds.service.impl(async function () {
             }
         });
 
+        // destination
+
+        
+
+        this.on('getProducts', async () => {
+            const external = await cds.connect.to('ExternalAPI');
+            const res = await external.get('/products');
+            return res;
+        });
+
 
     // });         
 });

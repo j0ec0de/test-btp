@@ -27,4 +27,5 @@ service ShopService {
     action checkOrderStatus(orderID : String) returns String;
     action checkPayloadStatus(orderID : String) returns String;
     action checkNewAction(orderID : String) returns String;
+    action getProducts() returns String;
 }
