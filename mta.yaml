@@ -87,6 +87,10 @@ modules:
       - ui5demoapp.zip
       name: ui5demoapp
       target-path: app/
+    - artifacts:
+      - insurance.zip
+      name: insurance
+      target-path: app/
 - name: test2adminbooks
   type: html5
   path: app/admin-books
@@ -140,6 +144,16 @@ modules:
 - name: ui5demoapp
   type: html5
   path: app/ui5demoapp
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: insurance
+  type: html5
+  path: app/insurance
   build-parameters:
     build-result: dist
     builder: custom

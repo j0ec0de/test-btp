@@ -25,7 +25,8 @@
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
     "watch-shop": "cds watch --open shop/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-management": "cds watch --open management/index.html?sap-ui-xx-viewCache=false --livereload false",
-    "watch-ui5demoapp": "cds watch --open ui5demoapp/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-ui5demoapp": "cds watch --open ui5demoapp/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-insurance": "cds watch --open insurance/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "private": true,
   "cds": {
@@ -49,6 +50,7 @@
   ],
   "sapux": [
     "app/fiorigames",
-    "app/shop"
+    "app/shop",
+    "app/insurance"
   ]
 }
